@@ -1,5 +1,0 @@
-dependencies:
-  flutter:
-    sdk: flutter
-  zego_uploader_live_audio_room: ^2.20.0
-  permission_handler: ^11.4.0
