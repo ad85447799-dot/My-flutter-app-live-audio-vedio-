@@ -1,0 +1,23 @@
+workflows:
+  android-release:
+    name: Android APK Build
+    max_build_duration: 120
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      groups:
+        - credentials
+    scripts:
+      - name: Get Flutter packages
+        script: flutter pub get
+      - name: Flutter analyze
+        script: flutter analyze --no-fatal-infos --no-fatal-warnings
+      - name: Build Android APK
+        script: flutter build apk --release --split-per-abi
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      email:
+        recipients:
+          - your_email@gmail.com  # یہاں اپنا email ڈال دو
